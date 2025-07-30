@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂 Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      background-image: url('image.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 2em;
+      text-shadow: 2px 2px 8px #ff99cc;
+    }
+
+    .cake {
+      margin: 20px auto;
+      font-size: 1.2em;
+      white-space: pre-line;
+      background-color: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .btn {
+      background-color: #ff99cc;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 8s linear infinite;
+      color: red;
+      user-select: none;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgm" src="song.mp3" loop autoplay></audio>
+
+  <h1>🎈 Happy Birthday My Love! 🎈</h1>
+
+  <div class="cake">
+    🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂<br />
+    🎉 HAPPY BIRTHDAY LOVE 🎉<br />
+    🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂
+  </div>
+
+  <br />
+  <button class="btn" onclick="showMessage()">Click for your surprise 💝</button>
+
+  <script>
+    const message = `To my amazing girlfriend,\n\n🎉 Happy Birthday! 🎉\n\nYou light up my world every single day.\nMay this birthday bring you as much happiness\nas you bring me!\n\n💫 Love you always 💖`;
+
+    function showMessage() {
+      alert(message);
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+      heart.textContent = '❤️';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
